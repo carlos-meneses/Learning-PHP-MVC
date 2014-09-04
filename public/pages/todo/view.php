@@ -1,4 +1,4 @@
-<h1>ToDo List</h1>
+<h1>View ToDo List</h1>
 <table>
 	<tr>
 		<td>Id:</td>
