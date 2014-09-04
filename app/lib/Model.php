@@ -9,6 +9,6 @@ class Model extends R {
 
 	private function openDatabaseConnection()
     {
-        $this->$db = self::setup(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+        $this->db = self::setup(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
     }
 }
