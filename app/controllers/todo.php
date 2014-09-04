@@ -5,7 +5,7 @@ class ToDo
 	public function index()
 	{
 		$todo = new TodoModel();
-		$todos = R::findAll('todo');
+		$todos = $todo->findAll('todo');
 		require ROOT_STATIC."pages/todo/index.php";
 	}
 
@@ -14,7 +14,7 @@ class ToDo
 		if ($_REQUEST == $_POST) 
 		{
 			$todo = new TodoModel();
-			$todo = R::dispense('todo');
+			$todo = $todo->dispense('todo');
 			foreach ($data as $key => $value) 
 			{
 				$todo->$key = $value;
@@ -31,8 +31,8 @@ class ToDo
             header("Location: index.php");
         }else{
 			$todo = new TodoModel();
-			if (R::load('todo', $id)) {
-				$todo = R::load('todo', $id);
+			if ($todo->load('todo', $id)) {
+				$todo = $todo->load('todo', $id);
 				require ROOT_STATIC."pages/todo/view.php";
 			}
         }
@@ -43,7 +43,7 @@ class ToDo
 		if ($_REQUEST == $_POST) 
 		{
 			$todo = new TodoModel();
-			$todo = R::load('todo', $data['id']);
+			$todo = $todo->load('todo', $data['id']);
 			foreach ($data as $key => $value) 
 			{
 				$todo->$key = $value;
@@ -56,9 +56,9 @@ class ToDo
 		if (!empty($id)) 
 		{
 			$todo = new TodoModel();
-			if (R::load('todo', $id)) 
+			if ($todo->load('todo', $id))
 			{
-				$todo = R::load('todo', $id);
+				$todo = $todo->load('todo', $id);
 				require ROOT_STATIC."pages/todo/edit.php";
 			}
 		}
@@ -73,9 +73,9 @@ class ToDo
 		if (!empty($id)) 
 		{
 			$todo = new TodoModel();
-			if (R::load('todo', $id)) 
+			if ($todo->load('todo', $id))
 			{
-				$todo = R::load('todo', $id);
+				$todo = $todo->load('todo', $id);
 				R::trash($todo);
 				header("Location: index.php?controller=todo&action=index");
 			}

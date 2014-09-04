@@ -1,5 +1,5 @@
 <?php
-class Model extends RedBean_SimpleModel {
+class Model extends R {
 
 	public static $db;
 
@@ -9,7 +9,6 @@ class Model extends RedBean_SimpleModel {
 
 	private function openDatabaseConnection()
     {
-        //$options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
         self::$db = R::setup(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
     }
 }
